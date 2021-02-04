@@ -28,5 +28,8 @@ export class HitCounter extends cdk.Construct {
                 HITS_TABLE_NAME: table.tableName
             }
         });
+
+        //grant the lambda role read/write permissions to the table
+        table.grantReadWriteData(this.handler);
     }
 }
